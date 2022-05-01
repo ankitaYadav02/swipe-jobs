@@ -1,14 +1,10 @@
 import axios from "axios";
-import { jobActionProps } from "dto/jobAction";
+import { jobActionProps, JobActionsResponse } from "dto/jobAction";
 
 export const getUserProfile = async (userId: string) => {
   try {
     const user = await axios.get(`${userId}/profile`);
-    if (user) {
-      return user.data;
-    } else {
-      return "No user found";
-    }
+    return user.data;
   } catch (err) {
     throw err;
   }
@@ -17,11 +13,7 @@ export const getUserProfile = async (userId: string) => {
 export const matchedJobOffer = async (workerId: string) => {
   try {
     const matchedJob = await axios.get(`${workerId}/matches`);
-    if (matchedJob) {
-      return matchedJob.data;
-    } else {
-      return "No Job Offer Found";
-    }
+    return matchedJob.data;
   } catch (err) {
     throw err;
   }
@@ -30,12 +22,11 @@ export const matchedJobOffer = async (workerId: string) => {
 export const acceptJobOffer = async (props: jobActionProps) => {
   const { workerId, jobId } = props;
   try {
-    const jobOfferAccept = await axios.get(`${workerId}/job/${jobId}/accept`);
-    if (jobOfferAccept) {
-      return jobOfferAccept;
-    } else {
-      return "Not able to accept job";
-    }
+    const jobOfferAccept = await axios.get<JobActionsResponse>(
+      `${workerId}/job/${jobId}/accept`
+    );
+
+    return jobOfferAccept.data;
   } catch (err) {
     throw err;
   }
@@ -44,12 +35,10 @@ export const acceptJobOffer = async (props: jobActionProps) => {
 export const rejectJobOffer = async (props: jobActionProps) => {
   const { workerId, jobId } = props;
   try {
-    const jobOfferReject = await axios.get(`${workerId}/job/${jobId}/reject`);
-    if (jobOfferReject) {
-      return jobOfferReject;
-    } else {
-      return "Not able to reject job";
-    }
+    const jobOfferReject = await axios.get<JobActionsResponse>(
+      `${workerId}/job/${jobId}/reject`
+    );
+    return jobOfferReject.data;
   } catch (err) {
     throw err;
   }
