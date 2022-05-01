@@ -1,19 +1,25 @@
-
 import { workerID } from "Constant/constant";
 import useWorkerJobMatches from "Hooks/UserJobMatches";
 import { JobMatchesDto } from "dto/jobMatches";
 import { Link } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 import JobCard from "./JobCard";
 
 const JobMatches = () => {
-  const { isLoading, isError, data } = useWorkerJobMatches(workerID);
+  const { isLoading, data } = useWorkerJobMatches(workerID);
 
-  return isError ? (
-    <Typography>Something Went Wrong</Typography>
-  ) : isLoading ? (
-    <Typography>Loading</Typography>
-  ) : (
+  const JobCardSkeleton = () => {
+    return (
+      <Box>
+        <Skeleton variant="rectangular" width={250} height="100%"></Skeleton>
+        <Skeleton variant="text" height={40}></Skeleton>
+        <Skeleton variant="text" height={30}></Skeleton>
+        <Skeleton variant="text" height={30}></Skeleton>
+      </Box>
+    );
+  };
+
+  return (
     <Box
       sx={{
         display: "flex",
@@ -21,15 +27,17 @@ const JobMatches = () => {
         gap: 4,
       }}
     >
-      {data.map((matchedJob: JobMatchesDto) => (
-        <Link
-          to={"job/" + matchedJob?.jobId}
-          style={{ textDecoration: "none" }}
-          key={matchedJob?.jobId}
-        >
-          <JobCard job={matchedJob} />
-        </Link>
-      ))}
+      {isLoading
+        ? [1, 2].map(() => <JobCardSkeleton />)
+        : data?.map((matchedJob: JobMatchesDto) => (
+            <Link
+              to={"job/" + matchedJob?.jobId}
+              style={{ textDecoration: "none" }}
+              key={matchedJob?.jobId}
+            >
+              <JobCard job={matchedJob} />
+            </Link>
+          ))}
     </Box>
   );
 };

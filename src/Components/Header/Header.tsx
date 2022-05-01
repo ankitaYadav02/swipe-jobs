@@ -1,21 +1,24 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import { Link } from "react-router-dom";
-import { routesName, workerID } from "Constant/constant";
-import SwipejobsLogo from "./SwipejobsLogo";
-import { Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Container,
+  Skeleton,
+  Typography,
+} from "@mui/material";
 import { useQueryClient } from "react-query";
+import { routesName, workerID } from "Constant/constant";
 import { queryKey } from "Services/serviceEndpoints";
 import { UserData } from "dto/workerProfile";
+import SwipejobsLogo from "./SwipejobsLogo";
 
 const Header = () => {
   const queryClient = useQueryClient();
-  const a = queryClient.getQueryState<UserData>([queryKey.profile, workerID]);
+  const userData = queryClient.getQueryState<UserData>([
+    queryKey.profile,
+    workerID,
+  ]);
 
   return (
     <AppBar position="static">
@@ -26,18 +29,27 @@ const Header = () => {
               to={routesName.home}
               style={{ textDecoration: "none", color: "#ffffff" }}
             >
-                <SwipejobsLogo />
+              <SwipejobsLogo />
             </Link>
           </Box>
-          <Link to={routesName.profile} style={{ textDecoration: "none" }}>
-            <Box sx={{ flexGrow: 0, textDecoration: "none" }}>
-              <Typography mr={1} sx={{ color: "#fff", fontWeight: 400 }}>
-                {a?.data?.firstName
-                  ? a?.data?.firstName + " " + a?.data?.lastName
-                  : "not found"}
-              </Typography>
-            </Box>
-          </Link>
+          {userData?.status === "idle" && !userData?.data ? (
+            <Skeleton
+              variant="text"
+              width={70}
+              height={30}
+              sx={{ bgcolor: "#757575" }}
+            />
+          ) : (
+            <Link to={routesName.profile} style={{ textDecoration: "none" }}>
+              <Box sx={{ flexGrow: 0, textDecoration: "none" }}>
+                <Typography mr={1} sx={{ color: "#fff", fontWeight: 400 }}>
+                  {`${userData?.data?.firstName ?? ""} ${
+                    userData?.data?.lastName ?? ""
+                  }`}
+                </Typography>
+              </Box>
+            </Link>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
