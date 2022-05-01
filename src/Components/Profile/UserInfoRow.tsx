@@ -16,7 +16,7 @@ const UserInfoRow = (props: UserInfoRowProps) => {
           {label}
         </Typography>
       </Box>
-      <Typography sx={{ fontSize: "1.2rem", marginLeft: "0.5rem" }}>
+      <Typography sx={{ fontSize: "1.2rem", marginLeft: "0.5rem" }} data-testid={label}>
         {textValue}
       </Typography>
     </Box>

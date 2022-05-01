@@ -28,6 +28,7 @@ const Header = () => {
             <Link
               to={routesName.home}
               style={{ textDecoration: "none", color: "#ffffff" }}
+              data-testid="SwipeJobs"
             >
               <SwipejobsLogo />
             </Link>
@@ -40,7 +41,7 @@ const Header = () => {
               sx={{ bgcolor: "#757575" }}
             />
           ) : (
-            <Link to={routesName.profile} style={{ textDecoration: "none" }}>
+            <Link data-testid="userProfileName" to={routesName.profile} style={{ textDecoration: "none" }}>
               <Box sx={{ flexGrow: 0, textDecoration: "none" }}>
                 <Typography mr={1} sx={{ color: "#fff", fontWeight: 400 }}>
                   {`${userData?.data?.firstName ?? ""} ${

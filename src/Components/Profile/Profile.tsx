@@ -46,7 +46,7 @@ const Profile = () => {
       >
         <Grid item xs={12} sm={8}>
           <CardContent sx={{ flex: "1 0 auto" }}>
-            <Typography component="div" variant="h3">
+            <Typography component="div" variant="h3" data-testid="userName">
               {isLoading ? (
                 <Skeleton />
               ) : (
