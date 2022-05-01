@@ -47,9 +47,17 @@ Or
 $ yarn test
 ```
 ### Following are the screens
-![image](https://user-images.githubusercontent.com/57960362/166162028-7c673770-dd46-4c7f-8d5c-e92476f4b8eb.png)
-![image](https://user-images.githubusercontent.com/57960362/166162047-dc00f5d7-b3a8-4433-896c-f77d1bfbb2d6.png)
+![image](https://user-images.githubusercontent.com/57960362/166162028-7c673770-dd46-4c7f-8d5c-e92476f4b8eb.png)  
+---  
+  
+![image](https://user-images.githubusercontent.com/57960362/166162047-dc00f5d7-b3a8-4433-896c-f77d1bfbb2d6.png)  
+---
+  
 ![image](https://user-images.githubusercontent.com/57960362/166162062-f6c45293-08a8-4c62-8dc8-07d096026da0.png)
+---
+   
 ![image](https://user-images.githubusercontent.com/57960362/166162189-71f0cf6d-a25b-4018-88a2-b1189fca31a6.png)
+---
+   
 ![image](https://user-images.githubusercontent.com/57960362/166162146-dd445cb6-519b-443d-8675-7b3047655b23.png)
 
