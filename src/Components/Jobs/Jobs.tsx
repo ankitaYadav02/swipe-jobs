@@ -83,12 +83,12 @@ const Jobs = () => {
               >
                 <JobsDistanceAndRateRow
                   label="Distance"
-                  labelTextValue={selectedJob?.milesToTravel + " miles"}
+                  labelTextValue={selectedJob?.milesToTravel?.toFixed(1) + " miles"}
                 />
                 <JobsDistanceAndRateRow
                   label="Hourly Rate"
                   labelTextValue={
-                    `$${convertCentsToDollars(selectedJob?.wagePerHourInCents)}`
+                    `${convertCentsToDollars(selectedJob?.wagePerHourInCents)?.toFixed(2)}`
                   }
                 />
               </Box>
@@ -111,8 +111,8 @@ const Jobs = () => {
                     {selectedJob?.company?.address?.formattedAddress}
                   </JobInfoText>
                   <Typography sx={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                    {selectedJob?.milesToTravel} miles from your job search
-                    location{" "}
+                    {selectedJob?.milesToTravel?.toFixed(2)} miles from your job search
+                    location
                   </Typography>
                 </Box>
                 <ArrowForwardIos sx={{ alignSelf: "center" }} />
@@ -125,7 +125,7 @@ const Jobs = () => {
                     ? selectedJob?.requirements?.map((r: string) => (
                         <JobInfoText key={uuidv4()}>-{r}</JobInfoText>
                       ))
-                    : "nil"}
+                    : "Nil"}
                 </Box>
               </JobInfoRow>
               <JobInfoRow disableBorder>

@@ -8,8 +8,8 @@ const getFormattedTime = (props: FormatTimeProps) => {
   const startDateInstance = new Date(startDate);
   const endDateInstance = new Date(endDate);
   const time = {
-    date: `${startDateInstance.toString().substring(4, 7)}`,
-    initialTime: endDateInstance.toLocaleString("en-US", {
+    date: `${startDateInstance.toString().substring(4, 10).toUpperCase()}`,
+    initialTime: startDateInstance.toLocaleString("en-US", {
       hour: "numeric",
       minute: "numeric",
       hour12: true,

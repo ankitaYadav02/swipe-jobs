@@ -29,7 +29,7 @@ const JobActions = (props: JobActionsProps) => {
         loading={rejectJobMutation.isLoading}
         disabled={acceptJobMutation.isLoading}
         variant="outlined"
-        sx={{ flexGrow: 1 }}
+        sx={{ flexGrow: 1, textTransform: 'capitalize'}}
         onClick={() => id && rejectJobMutation.mutate(id)}
       >
         No Thanks
@@ -38,7 +38,7 @@ const JobActions = (props: JobActionsProps) => {
         loading={acceptJobMutation.isLoading}
         disabled={rejectJobMutation.isLoading}
         variant="contained"
-        sx={{ flexGrow: 1 }}
+        sx={{ flexGrow: 1, textTransform: 'capitalize',}}
         onClick={() => id && acceptJobMutation.mutate(id)}
       >
         I'll Take it
