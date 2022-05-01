@@ -30,7 +30,7 @@ const Profile = () => {
       sx={{
         maxWidth: "700px",
         margin: "auto",
-        minWidth: "380px",
+        minWidth: "350px",
       }}
     >
       <Typography
