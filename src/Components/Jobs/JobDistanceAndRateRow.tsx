@@ -2,18 +2,26 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 
 interface jobsDistanceAndRateRowProps {
-  label: string;
-  labelTextValue: string;
+  milesToTravel: number;
+  wagePerHourInCents: string;
 }
 
 const JobsDistanceAndRateRow = (props: jobsDistanceAndRateRowProps) => {
-  const { label, labelTextValue } = props;
+  const { milesToTravel, wagePerHourInCents } = props;
   return (
-    <Box>
-      <Typography sx={{ fontSize: "0.9rem", fontWeight: 800 }}>
-        {label}
-      </Typography>
-      {label === "Hourly Rate" ? (
+    <>
+      <Box>
+        <Typography sx={{ fontSize: "0.9rem", fontWeight: 800 }}>
+          Distance
+        </Typography>
+        <Typography sx={{ color: "#fff", fontSize: "1.5rem", fontWeight: 600 }}>
+          {`${milesToTravel} miles`}
+        </Typography>
+      </Box>
+      <Box>
+        <Typography sx={{ fontSize: "0.9rem", fontWeight: 800 }}>
+          Hourly Rate
+        </Typography>
         <Box sx={{ display: "flex", flexFlow: "row", gap: "3px" }}>
           <Typography
             sx={{
@@ -29,15 +37,11 @@ const JobsDistanceAndRateRow = (props: jobsDistanceAndRateRowProps) => {
           <Typography
             sx={{ color: "#fff", fontSize: "1.5rem", fontWeight: 600 }}
           >
-            {labelTextValue}
+            {wagePerHourInCents}
           </Typography>
         </Box>
-      ) : (
-        <Typography sx={{ color: "#fff", fontSize: "1.5rem", fontWeight: 600 }}>
-          {labelTextValue}
-        </Typography>
-      )}
-    </Box>
+      </Box>
+    </>
   );
 };
 

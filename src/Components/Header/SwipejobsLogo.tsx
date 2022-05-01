@@ -1,3 +1,7 @@
+/**
+ * Taken from swipejobs website
+ * @author www.swipejobs.com
+ */
 const SwipejobsLogo = () => {
   return (
     <svg

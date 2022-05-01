@@ -1,21 +1,21 @@
+import { ReactNode } from "react";
 import { rest } from "msw";
-import { dummyMatches } from "../Hooks/UserJobMatches/__test__/useWorkerJobMatches.test";
-import React, { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { dumyUserData } from "Hooks/UserProfile/__tests__/useWorkerProfile.test";
+import { dummyMatches } from "../Hooks/UserJobMatches/__test__/useWorkerJobMatches.test";
+import { dummyUserData } from "Hooks/UserProfile/__tests__/useWorkerProfile.test";
 
 export const handlers = [
   rest.get("*/profile", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(dumyUserData));
+    return res(ctx.status(200), ctx.json(dummyUserData));
   }),
   rest.get("*/matches", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(dummyMatches));
   }),
   rest.get("*/accept", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(dumyUserData));
+    return res(ctx.status(200), ctx.json(dummyUserData));
   }),
   rest.get("*/reject", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(dumyUserData));
+    return res(ctx.status(200), ctx.json(dummyUserData));
   }),
 ];
 
@@ -28,15 +28,15 @@ const createTestQueryClient = () =>
     },
   });
 
-type a = {
+type createWrapperProps = {
   children: ReactNode;
 };
 
-export function createWrapper() {
+export const createWrapper = () => {
   const testQueryClient = createTestQueryClient();
-  return ({ children }: a) => (
+  return ({ children }: createWrapperProps) => (
     <QueryClientProvider client={testQueryClient}>
       {children}
     </QueryClientProvider>
   );
-}
+};

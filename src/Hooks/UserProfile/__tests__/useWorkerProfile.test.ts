@@ -4,7 +4,7 @@ import useWorkerProfile from "Hooks/UserProfile";
 import { server } from "setUpTest";
 import { createWrapper } from "Utils/MockApis";
 
-export const dumyUserData = {
+export const dummyUserData = {
   address: {
     formattedAddress: "1 Downing St, Chicago, IL 60654, USA",
     zoneId: "America/Chicago",
@@ -25,5 +25,5 @@ test("Fetch Worker profile Successfully", async () => {
   });
 
   await waitFor(() => expect(result.current.isSuccess).toBe(true));
-  expect(result.current.data).toEqual(dumyUserData);
+  expect(result.current.data).toEqual(dummyUserData);
 });

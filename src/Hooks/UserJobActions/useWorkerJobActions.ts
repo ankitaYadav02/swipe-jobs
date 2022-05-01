@@ -16,10 +16,7 @@ const useWorkerJobActions = (workerId: string) => {
     type: undefined,
   });
 
-  const handleCloseSnackbar = (
-    _event?: SyntheticEvent | Event,
-    reason?: string
-  ) => {
+  const handleCloseSnackbar = (_event?: SyntheticEvent | Event) => {
     setSnackbarOpen({ open: false, message: "", type: undefined });
   };
 
@@ -32,7 +29,7 @@ const useWorkerJobActions = (workerId: string) => {
           open: true,
           message: data.success
             ? "Job Rejected"
-            : data?.message ?? "Some Error Occured",
+            : data?.message ?? "Some Error Occurred",
           type: data.success ? "success" : "error",
         });
       },
@@ -48,7 +45,7 @@ const useWorkerJobActions = (workerId: string) => {
           open: true,
           message: data.success
             ? "Job Accepted"
-            : data?.message ?? "Some Error Occured",
+            : data?.message ?? "Some Error Occurred",
           type: data.success ? "success" : "error",
         });
       },

@@ -1,10 +1,13 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { Grid, Skeleton } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+  Skeleton,
+} from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { v4 as uuidv4 } from "uuid";
 import { workerID } from "Constant/constant";
 import useWorkerProfile from "Hooks/UserProfile/useWorkerProfile";
 import UserInfoRow from "./UserInfoRow";
@@ -13,10 +16,10 @@ const UserInfoRowSKeleton = () => {
   return (
     <Box>
       {[1, 2, 3, 4, 5].map((val) => (
-        <>
-          <Skeleton key={val} variant="text" width={100} height={40}></Skeleton>
-          <Skeleton key={val} variant="text" height={30}></Skeleton>
-        </>
+        <div key={uuidv4()} >
+          <Skeleton variant="text" width={100} height={40} />
+          <Skeleton variant="text" height={30} />
+        </div>
       ))}
     </Box>
   );

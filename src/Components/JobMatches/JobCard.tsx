@@ -1,7 +1,5 @@
 import { Card, CardMedia, Typography, CardContent } from "@mui/material";
-import FmdGoodIcon from "@mui/icons-material/FmdGood";
-import ApartmentIcon from "@mui/icons-material/Apartment";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import { FmdGood, Apartment, MonetizationOn } from "@mui/icons-material";
 import { convertCentsToDollars } from "Utils/utils";
 import { JobMatchesDto } from "dto/jobMatches";
 import JobDetailRow from "./JobDetailRow";
@@ -28,10 +26,10 @@ const JobCard = (props: JobCardInterface) => {
         <Typography sx={{ fontSize: "1.2rem", fontWeight: 700 }}>
           {job?.jobTitle?.name}
         </Typography>
-        <JobDetailRow icon={<ApartmentIcon />} label={job?.company?.name} />
-        <JobDetailRow icon={<FmdGoodIcon />} label={job?.branch} />
+        <JobDetailRow icon={<Apartment />} label={job?.company?.name} />
+        <JobDetailRow icon={<FmdGood />} label={job?.branch} />
         <JobDetailRow
-          icon={<MonetizationOnIcon />}
+          icon={<MonetizationOn />}
           label={"$" + convertCentsToDollars(job?.wagePerHourInCents) + "/hr"}
         />
       </CardContent>

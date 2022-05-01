@@ -1,4 +1,4 @@
-import getFormattedPeriod from "./formatTime";
+import getFormattedPeriod from "../formatTime";
 
 const date = {
   startDate: "2019-09-04T21:00:00Z",

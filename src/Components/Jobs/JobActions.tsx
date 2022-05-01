@@ -41,7 +41,7 @@ const JobActions = (props: JobActionsProps) => {
         sx={{ flexGrow: 1, textTransform: 'capitalize',}}
         onClick={() => id && acceptJobMutation.mutate(id)}
       >
-        I'll Take it
+        I&apos;ll Take it
       </LoadingButton>
       <Snackbar
         open={snackbarOpen.open}

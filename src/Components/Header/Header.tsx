@@ -10,12 +10,12 @@ import {
 import { useQueryClient } from "react-query";
 import { routesName, workerID } from "Constant/constant";
 import { queryKey } from "Services/serviceEndpoints";
-import { UserData } from "dto/workerProfile";
+import { UserDataDto } from "dto/workerProfile";
 import SwipejobsLogo from "./SwipejobsLogo";
 
 const Header = () => {
   const queryClient = useQueryClient();
-  const userData = queryClient.getQueryState<UserData>([
+  const userData = queryClient.getQueryState<UserDataDto>([
     queryKey.profile,
     workerID,
   ]);

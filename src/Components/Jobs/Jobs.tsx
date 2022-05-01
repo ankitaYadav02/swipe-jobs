@@ -28,10 +28,10 @@ const JobCardSkeleton = () => {
       <Skeleton variant="text" width={250} height={40}></Skeleton>
 
       {[1, 2, 3].map((val) => (
-        <>
+        <div key={uuidv4()} >
           <Skeleton key={val} variant="text" width={100} height={40}></Skeleton>
           <Skeleton key={val} variant="text" height={30}></Skeleton>
-        </>
+        </div>
       ))}
     </Box>
   );
@@ -59,13 +59,19 @@ const Jobs = () => {
           {isLoading ? (
             <JobCardSkeleton />
           ) : (
-            <Box sx={{marginTop: {xs:'0px', sm: '2rem'} }}>
+            <Box sx={{ marginTop: { xs: "0px", sm: "2rem" } }}>
               <Box
                 sx={{
                   padding: " 0.1rem 1.5rem",
                 }}
               >
-                <Typography sx={{ fontSize: "1.3rem", fontWeight: 800, marginTop: {xs:'0px'} }}>
+                <Typography
+                  sx={{
+                    fontSize: "1.3rem",
+                    fontWeight: 800,
+                    marginTop: { xs: "0px" },
+                  }}
+                >
                   {selectedJob?.jobTitle?.name}
                 </Typography>
                 <Typography sx={{ fontSize: "1.1rem", fontWeight: 600 }}>
@@ -82,14 +88,10 @@ const Jobs = () => {
                 }}
               >
                 <JobsDistanceAndRateRow
-                  label="Distance"
-                  labelTextValue={selectedJob?.milesToTravel?.toFixed(1) + " miles"}
-                />
-                <JobsDistanceAndRateRow
-                  label="Hourly Rate"
-                  labelTextValue={
-                    `${convertCentsToDollars(selectedJob?.wagePerHourInCents)?.toFixed(2)}`
-                  }
+                  milesToTravel={selectedJob?.milesToTravel?.toFixed(1)}
+                  wagePerHourInCents={convertCentsToDollars(
+                    selectedJob?.wagePerHourInCents
+                  )?.toFixed(2)}
                 />
               </Box>
               <JobInfoRow>
@@ -111,8 +113,8 @@ const Jobs = () => {
                     {selectedJob?.company?.address?.formattedAddress}
                   </JobInfoText>
                   <Typography sx={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>
-                    {selectedJob?.milesToTravel?.toFixed(2)} miles from your job search
-                    location
+                    {selectedJob?.milesToTravel?.toFixed(2)} miles from your job
+                    search location
                   </Typography>
                 </Box>
                 <ArrowForwardIos sx={{ alignSelf: "center" }} />
@@ -142,7 +144,7 @@ const Jobs = () => {
           )}
         </Grid>
         <Grid item xs={12} sm={4}>
-          <Box sx={{ margin: {xs:'none', sm:"4rem 0.8rem"} }}>
+          <Box sx={{ margin: { xs: "none", sm: "4rem 0.8rem" } }}>
             {isLoading ? (
               <Skeleton variant="rectangular" width={250} height={100} />
             ) : (

@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { workerID } from "Constant/constant";
 import useWorkerJobMatches from "Hooks/UserJobMatches";
 import { JobMatchesDto } from "dto/jobMatches";
@@ -10,7 +11,7 @@ const JobMatches = () => {
 
   const JobCardSkeleton = () => {
     return (
-      <Box>
+      <Box >
         <Skeleton variant="rectangular" width={250} height="100%"></Skeleton>
         <Skeleton variant="text" height={40}></Skeleton>
         <Skeleton variant="text" height={30}></Skeleton>
@@ -28,7 +29,7 @@ const JobMatches = () => {
       }}
     >
       {isLoading
-        ? [1, 2].map(() => <JobCardSkeleton />)
+        ? [1, 2].map(() => <JobCardSkeleton key={uuidv4()}/>)
         : data?.map((matchedJob: JobMatchesDto) => (
             <Link
               to={"job/" + matchedJob?.jobId}

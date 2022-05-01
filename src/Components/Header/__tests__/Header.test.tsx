@@ -7,7 +7,7 @@ import { server } from "setUpTest";
 import theme from "theme";
 import { createWrapper } from "Utils/MockApis";
 import useWorkerProfile from "Hooks/UserProfile";
-import Header from "./Header";
+import Header from "../Header";
 
 const queryClient = new QueryClient();
 

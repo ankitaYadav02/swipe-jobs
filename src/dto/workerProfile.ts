@@ -2,7 +2,7 @@ export interface Address {
   formattedAddress: string;
   zoneId: string;
 }
-export interface UserData {
+export interface UserDataDto {
   firstName: string;
   lastName: string;
   email: string;

@@ -3,7 +3,7 @@ export interface jobActionProps {
   jobId: string;
 }
 
-export interface JobActionsResponse {
+export interface JobActionsDto {
   success: boolean;
   message?: string;
   errorCode?: string;

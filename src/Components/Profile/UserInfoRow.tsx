@@ -1,5 +1,4 @@
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Typography, Box } from "@mui/material";
 
 interface UserInfoRowProps {
   label: string;
@@ -16,7 +15,10 @@ const UserInfoRow = (props: UserInfoRowProps) => {
           {label}
         </Typography>
       </Box>
-      <Typography sx={{ fontSize: "1.2rem", marginLeft: "0.5rem" }} data-testid={label}>
+      <Typography
+        sx={{ fontSize: "1.2rem", marginLeft: "0.5rem" }}
+        data-testid={label}
+      >
         {textValue}
       </Typography>
     </Box>

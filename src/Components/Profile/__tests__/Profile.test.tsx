@@ -7,9 +7,9 @@ import { server } from "setUpTest";
 import theme from "theme";
 import { createWrapper } from "Utils/MockApis";
 import useWorkerProfile from "Hooks/UserProfile";
-import { dumyUserData } from "Hooks/UserProfile/__tests__/useWorkerProfile.test";
-import Profile from "./Profile";
-import UserInfoRow from "./UserInfoRow";
+import { dummyUserData } from "Hooks/UserProfile/__tests__/useWorkerProfile.test";
+import Profile from "../Profile";
+import UserInfoRow from "../UserInfoRow";
 
 const queryClient = new QueryClient();
 
@@ -33,14 +33,14 @@ describe("Profile", () => {
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     const userProfileEl = screen.getByTestId("userName");
 
-    expect(userProfileEl).toHaveTextContent(dumyUserData.firstName);
+    expect(userProfileEl).toHaveTextContent(dummyUserData.firstName);
   });
   test("should have email of the user", async () => {
     render(
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-            <UserInfoRow label="email" textValue={dumyUserData.email} />
+            <UserInfoRow label="email" textValue={dummyUserData.email} />
           </BrowserRouter>
         </ThemeProvider>
       </QueryClientProvider>
@@ -54,6 +54,6 @@ describe("Profile", () => {
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     const userProfileEl = screen.getByTestId("email");
 
-    expect(userProfileEl).toHaveTextContent(dumyUserData.email);
+    expect(userProfileEl).toHaveTextContent(dummyUserData.email);
   });
 });
