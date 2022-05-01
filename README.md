@@ -59,5 +59,11 @@ $ yarn test
 ![image](https://user-images.githubusercontent.com/57960362/166162189-71f0cf6d-a25b-4018-88a2-b1189fca31a6.png)
 ---
    
-![image](https://user-images.githubusercontent.com/57960362/166162146-dd445cb6-519b-443d-8675-7b3047655b23.png)
+![image](https://user-images.githubusercontent.com/57960362/166167955-a935bad9-fff2-476d-b161-dce18110924b.png)
+---
+
+![image](https://user-images.githubusercontent.com/57960362/166167968-39ec07b3-1535-4750-af1d-2b7e3e9058b7.png)
+---
+
+![image](https://user-images.githubusercontent.com/57960362/166167991-8be2428e-ec49-4ed5-92a3-d6775875f935.png)
 
