@@ -3,36 +3,25 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import { Grid } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import LocationCityIcon from "@mui/icons-material/LocationCity";
-import AssistantDirectionIcon from "@mui/icons-material/AssistantDirection";
-import FmdGoodIcon from "@mui/icons-material/FmdGood";
-import { queryKey } from "Services/serviceEndpoints";
-import { useQueryClient } from "react-query";
 import { workerID } from "Constant/constant";
-import { UserData } from "dto/workerProfile";
 import useWorkerProfile from "Hooks/UserProfile/useWorkerProfile";
 
 interface UserInfoRowProps {
-  icon?: React.ReactNode;
   label: string;
   textValue: string | undefined;
 }
 
 const UserInfoRow = (props: UserInfoRowProps) => {
-  const { icon, label, textValue } = props;
+  const { label, textValue } = props;
 
   return (
     <Box>
       <Box
-        display={"flex"}
         sx={{ padding: "16px 0px 0px 0px", color: "#bdbdbd" }}
       >
-        {/* {icon} */}
-        <Typography ml={1} component={"label"} sx={{ alignSelf: "flex-start" }}>
+        <Typography ml={1} component={"label"}>
           {" "}
           {label}{" "}
         </Typography>
@@ -45,10 +34,10 @@ const UserInfoRow = (props: UserInfoRowProps) => {
 };
 
 const Profile = () => {
-  const { isLoading, isError, data } = useWorkerProfile(workerID);
+  const { isLoading, data } = useWorkerProfile(workerID);
 
   return isLoading ? (
-    <h1>Loading</h1>
+    <Typography>Loading</Typography>
   ) : (
     <Card
       sx={{
@@ -74,27 +63,22 @@ const Profile = () => {
               {data?.firstName + " " + data?.lastName}
             </Typography>
             <UserInfoRow
-              icon={<EmailIcon />}
               label="Email"
               textValue={data?.email}
             />
             <UserInfoRow
-              icon={<PhoneIphoneIcon />}
               label="Phone"
               textValue={data?.phoneNumber}
             />
             <UserInfoRow
-              icon={<AssistantDirectionIcon />}
               label="Maximum Job Distance"
               textValue={data?.maxJobDistance + "mile(s)"}
             />
             <UserInfoRow
-              icon={<LocationCityIcon />}
               label="Address"
               textValue={data?.address?.formattedAddress}
             />
             <UserInfoRow
-              icon={<FmdGoodIcon />}
               label="Zone"
               textValue={data?.address?.zoneId}
             />

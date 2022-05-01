@@ -5,7 +5,7 @@ import useWorkerProfile from "Hooks/UserProfile/useWorkerProfile";
 import { workerID } from "Constant/constant";
 
 const Home = () => {
-  const { isLoading, isError, data } = useWorkerProfile(workerID);
+  useWorkerProfile(workerID);
   return (
     <>
       <Header />

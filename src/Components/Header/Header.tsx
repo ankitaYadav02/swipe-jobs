@@ -26,9 +26,7 @@ const Header = () => {
               to={routesName.home}
               style={{ textDecoration: "none", color: "#ffffff" }}
             >
-              <span>
                 <SwipejobsLogo />
-              </span>
             </Link>
           </Box>
           <Link to={routesName.profile} style={{ textDecoration: "none" }}>
