@@ -10,7 +10,7 @@ const JobsDistanceAndRateRow = (props: jobsDistanceAndRateRowProps) => {
   const { label, labelTextValue } = props;
   return (
     <Box>
-      <Typography sx={{ fontSize: "0.8rem", fontWeight: 800 }}>
+      <Typography sx={{ fontSize: "0.9rem", fontWeight: 800 }}>
         {label}
       </Typography>
       <Typography sx={{ color: "#fff", fontSize: "1.5rem", fontWeight: 600 }}>

@@ -12,8 +12,8 @@ const Home = () => {
       <Box
         sx={{
           backgroundColor: "#eceff1",
-          minHeight: "calc(100vh - 128px)",
-          padding: "32px",
+          minHeight: "calc(100vh - 98px)",
+          padding: "16px",
         }}
       >
         <Outlet />

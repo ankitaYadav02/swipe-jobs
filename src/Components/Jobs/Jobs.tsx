@@ -14,7 +14,7 @@ import useWorkerJobMatches from "Hooks/UserJobMatches";
 import getFormattedTime, { FormatTimeProps } from "Utils/formatTime";
 import { convertCentsToDollars } from "Utils/utils";
 import JobActions from "./JobActions";
-import { JobInfoLabel, JobInfoRow } from "./JobsUiComponent";
+import { JobInfoLabel, JobInfoRow, JobInfoText } from "./JobsUiComponent";
 import JobsDistanceAndRateRow from "./JobDistanceAndRateRow";
 
 const JobCardSkeleton = () => {
@@ -47,7 +47,7 @@ const Jobs = () => {
       sx={{
         maxWidth: "900px",
         margin: "auto",
-        minWidth: "380px",
+        minWidth: "350px",
       }}
     >
       <Grid
@@ -59,16 +59,16 @@ const Jobs = () => {
           {isLoading ? (
             <JobCardSkeleton />
           ) : (
-            <Box mt={2}>
+            <Box sx={{marginTop: {xs:'0px', sm: '2rem'} }}>
               <Box
                 sx={{
-                  padding: " 0.1rem 2rem",
+                  padding: " 0.1rem 1.5rem",
                 }}
               >
-                <Typography sx={{ fontSize: "1.25rem", fontWeight: 700 }}>
+                <Typography sx={{ fontSize: "1.3rem", fontWeight: 800, marginTop: {xs:'0px'} }}>
                   {selectedJob?.jobTitle?.name}
                 </Typography>
-                <Typography sx={{ fontSize: "1.125rem", fontWeight: 600 }}>
+                <Typography sx={{ fontSize: "1.1rem", fontWeight: 600 }}>
                   {selectedJob?.company?.name}
                 </Typography>
               </Box>
@@ -78,17 +78,17 @@ const Jobs = () => {
                   display: "flex",
                   flexWrap: "row wrap",
                   justifyContent: "space-between",
-                  padding: "0.5rem 2rem",
+                  padding: "0.5rem 1.5rem",
                 }}
               >
                 <JobsDistanceAndRateRow
                   label="Distance"
-                  labelTextValue={selectedJob?.milesToTravel + "miles"}
+                  labelTextValue={selectedJob?.milesToTravel + " miles"}
                 />
                 <JobsDistanceAndRateRow
                   label="Hourly Rate"
                   labelTextValue={
-                    "$" + convertCentsToDollars(selectedJob?.wagePerHourInCents)
+                    `$${convertCentsToDollars(selectedJob?.wagePerHourInCents)}`
                   }
                 />
               </Box>
@@ -97,9 +97,9 @@ const Jobs = () => {
                 <Box>
                   <JobInfoLabel>Shift Dates</JobInfoLabel>
                   {selectedJob?.shifts?.map((shift: FormatTimeProps) => (
-                    <Typography key={uuidv4()}>
+                    <JobInfoText key={uuidv4()}>
                       {getFormattedTime(shift)}
-                    </Typography>
+                    </JobInfoText>
                   ))}
                 </Box>
               </JobInfoRow>
@@ -107,10 +107,10 @@ const Jobs = () => {
                 <FmdGood />
                 <Box sx={{ flexGrow: 1 }}>
                   <JobInfoLabel>Location</JobInfoLabel>
-                  <Typography>
+                  <JobInfoText>
                     {selectedJob?.company?.address?.formattedAddress}
-                  </Typography>
-                  <Typography sx={{ fontSize: "0.8rem", marginTop: "0.5rem" }}>
+                  </JobInfoText>
+                  <Typography sx={{ fontSize: "0.9rem", marginTop: "0.5rem" }}>
                     {selectedJob?.milesToTravel} miles from your job search
                     location{" "}
                   </Typography>
@@ -123,7 +123,7 @@ const Jobs = () => {
                   <JobInfoLabel>Requirements</JobInfoLabel>
                   {selectedJob?.requirements?.length
                     ? selectedJob?.requirements?.map((r: string) => (
-                        <Typography key={uuidv4()}>-{r}</Typography>
+                        <JobInfoText key={uuidv4()}>-{r}</JobInfoText>
                       ))
                     : "nil"}
                 </Box>
@@ -132,9 +132,9 @@ const Jobs = () => {
                 <AccountCircle />
                 <Box>
                   <JobInfoLabel>Report To</JobInfoLabel>
-                  <Typography>
+                  <JobInfoText>
                     {selectedJob?.company?.reportTo?.name}
-                  </Typography>
+                  </JobInfoText>
                 </Box>
               </JobInfoRow>
               <JobActions id={id} />
@@ -142,7 +142,7 @@ const Jobs = () => {
           )}
         </Grid>
         <Grid item xs={12} sm={4}>
-          <Box sx={{ margin: "4rem 0.8rem" }}>
+          <Box sx={{ margin: {xs:'none', sm:"4rem 0.8rem"} }}>
             {isLoading ? (
               <Skeleton variant="rectangular" width={250} height={100} />
             ) : (

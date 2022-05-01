@@ -8,7 +8,7 @@ interface JobInfoRowProps extends BoxProps {
 
 export const JobInfoRow = styled(Box)<JobInfoRowProps>(({ disableBorder }) => ({
   display: "flex",
-  margin: "0 2rem",
+  margin: "0 1.5rem",
   padding: "0.5rem 0",
   borderBottom: disableBorder ? "none" : "1px solid #757575",
   alignItems: "center",
@@ -16,6 +16,10 @@ export const JobInfoRow = styled(Box)<JobInfoRowProps>(({ disableBorder }) => ({
 }));
 
 export const JobInfoLabel = styled(Typography)(() => ({
+  fontSize: "1rem",
+  fontWeight: 800,
+}));
+
+export const JobInfoText = styled(Typography)(() => ({
   fontSize: "1.2rem",
-  fontWeight: 600,
 }));
