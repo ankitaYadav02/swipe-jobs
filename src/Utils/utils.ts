@@ -1,1 +1,1 @@
-export const convertCentsToDollars = (cents: number) => cents / 100
+export const convertCentsToDollars = (cents: number) => cents / 100;

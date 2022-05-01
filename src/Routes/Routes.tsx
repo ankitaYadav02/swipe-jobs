@@ -1,15 +1,11 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Profile from "Components/Profile";
-import Home from "Components/Home"; 
+import Home from "Components/Home";
 import Jobs from "Components/Jobs";
 import JobMatches from "Components/JobMatches";
-import {routesName} from "Constant/constant";
+import { routesName } from "Constant/constant";
 
-const AppRoutes = () =>
+const AppRoutes = () => (
   <BrowserRouter>
     <Routes>
       <Route path={routesName.home} element={<Home />}>
@@ -19,5 +15,6 @@ const AppRoutes = () =>
       </Route>
     </Routes>
   </BrowserRouter>
+);
 
 export default AppRoutes;

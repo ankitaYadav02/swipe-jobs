@@ -1,8 +1,8 @@
-export const baseUrl = 'https://test.swipejobs.com/api/worker/';
+export const baseUrl = "https://test.swipejobs.com/api/worker/";
 
 export const queryKey = {
-    profile: 'profile',
-    reject: 'reject',
-    accept: 'accept',
-    matches: 'matches'
-}
+  profile: "profile",
+  reject: "reject",
+  accept: "accept",
+  matches: "matches",
+};

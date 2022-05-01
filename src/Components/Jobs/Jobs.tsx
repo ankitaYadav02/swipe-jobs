@@ -1,5 +1,6 @@
 import { Card, Grid, Box, Typography, Button } from "@mui/material";
 import { convertCentsToDollars } from "Utils/utils";
+import { v4 as uuidv4 } from "uuid";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import FmdGoodIcon from "@mui/icons-material/FmdGood";
 import ConstructionIcon from "@mui/icons-material/Construction";
@@ -11,6 +12,7 @@ import { useParams } from "react-router-dom";
 import useWorkerJobMatches from "Hooks/UserJobMatches";
 import useWorkerJobActions from "Hooks/UserJobActions/useWorkerJobActions";
 import getFormattedTime, { FormatTimeProps } from "Utils/formatTime";
+
 
 interface jobsDistanceAndRateRowProps {
   label: string;
@@ -34,10 +36,9 @@ const JobsDistanceAndRateRow = (props: jobsDistanceAndRateRowProps) => {
 const Jobs = () => {
   const { isLoading, isError, data } = useWorkerJobMatches(workerID);
   const { id } = useParams();
-  console.log(id);
   const selectedJob = data?.find((job: JobMatchesDto) => job?.jobId === id);
-  console.log(selectedJob);
-  const { rejectJobMutation, acceptJobMutation } = useWorkerJobActions(workerID);
+  const { rejectJobMutation, acceptJobMutation } =
+    useWorkerJobActions(workerID);
   return (
     <Card
       sx={{
@@ -100,7 +101,11 @@ const Jobs = () => {
                 <Typography sx={{ fontSize: "1.2rem", fontWeight: 600 }}>
                   Shift Dates
                 </Typography>
-                {selectedJob?.shifts?.map((shift: FormatTimeProps)=><Typography>{getFormattedTime(shift)}</Typography>)}
+                {selectedJob?.shifts?.map((shift: FormatTimeProps) => (
+                  <Typography key={uuidv4()}>
+                    {getFormattedTime(shift)}
+                  </Typography>
+                ))}
               </Box>
             </Box>
             <Box
@@ -143,7 +148,7 @@ const Jobs = () => {
                 </Typography>
                 {selectedJob?.requirements?.length
                   ? selectedJob?.requirements?.map((r: string) => (
-                      <Typography>-{r}</Typography>
+                      <Typography key={uuidv4()}>-{r}</Typography>
                     ))
                   : "nil"}
               </Box>

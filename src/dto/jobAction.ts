@@ -1,4 +1,4 @@
 export interface jobActionProps {
-    workerId: string;
-    jobId: string;
+  workerId: string;
+  jobId: string;
 }

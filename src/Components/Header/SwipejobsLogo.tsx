@@ -29,7 +29,7 @@ const SwipejobsLogo = () => {
         </g>
       </g>
     </svg>
-  )
-}
+  );
+};
 
-export default SwipejobsLogo
+export default SwipejobsLogo;

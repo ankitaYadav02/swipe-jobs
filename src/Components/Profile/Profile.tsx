@@ -14,7 +14,7 @@ import { queryKey } from "Services/serviceEndpoints";
 import { useQueryClient } from "react-query";
 import { workerID } from "Constant/constant";
 import { UserData } from "dto/workerProfile";
-import useWorkerProfile from 'Hooks/UserProfile/useWorkerProfile'
+import useWorkerProfile from "Hooks/UserProfile/useWorkerProfile";
 
 interface UserInfoRowProps {
   icon?: React.ReactNode;
@@ -47,8 +47,10 @@ const UserInfoRow = (props: UserInfoRowProps) => {
 const Profile = () => {
   const { isLoading, isError, data } = useWorkerProfile(workerID);
 
-  return (
-    isLoading ? <h1>Loading</h1> : <Card
+  return isLoading ? (
+    <h1>Loading</h1>
+  ) : (
+    <Card
       sx={{
         maxWidth: "700px",
         margin: "auto",
@@ -84,7 +86,7 @@ const Profile = () => {
             <UserInfoRow
               icon={<AssistantDirectionIcon />}
               label="Maximum Job Distance"
-              textValue={data?.maxJobDistance + 'mile(s)'}
+              textValue={data?.maxJobDistance + "mile(s)"}
             />
             <UserInfoRow
               icon={<LocationCityIcon />}

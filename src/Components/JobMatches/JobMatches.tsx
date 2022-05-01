@@ -37,33 +37,31 @@ interface JobsCardInterface {
 
 const JobsCard = (props: JobsCardInterface) => {
   const { job } = props;
-  return <Card
-    sx={{
-      maxWidth: "400px",
-      minWidth: "200px",
-    }}
-  >
-    <CardMedia
-      component="img"
-      image={job?.jobTitle?.imageUrl}
-      alt=""
-    />
-    <CardContent
+  return (
+    <Card
       sx={{
-        padding: "1rem",
+        maxWidth: "400px",
+        minWidth: "200px",
       }}
     >
-      <Typography sx={{ fontSize: "1.2rem", fontWeight: 700 }}>
-        {job?.jobTitle?.name}
-      </Typography>
-      <JobDetailRow icon={<ApartmentIcon />} label={job?.company?.name} />
-      <JobDetailRow icon={<FmdGoodIcon />} label={job?.branch} />
-      <JobDetailRow
-        icon={<MonetizationOnIcon />}
-        label={"$" + convertCentsToDollars(job?.wagePerHourInCents) + "/hr"}
-      />
-    </CardContent>
-  </Card>
+      <CardMedia component="img" image={job?.jobTitle?.imageUrl} alt="" />
+      <CardContent
+        sx={{
+          padding: "1rem",
+        }}
+      >
+        <Typography sx={{ fontSize: "1.2rem", fontWeight: 700 }}>
+          {job?.jobTitle?.name}
+        </Typography>
+        <JobDetailRow icon={<ApartmentIcon />} label={job?.company?.name} />
+        <JobDetailRow icon={<FmdGoodIcon />} label={job?.branch} />
+        <JobDetailRow
+          icon={<MonetizationOnIcon />}
+          label={"$" + convertCentsToDollars(job?.wagePerHourInCents) + "/hr"}
+        />
+      </CardContent>
+    </Card>
+  );
 };
 
 const JobMatches = () => {
@@ -82,7 +80,11 @@ const JobMatches = () => {
       }}
     >
       {data.map((matchedJob: JobMatchesDto) => (
-        <Link to={'job/' + matchedJob?.jobId} style={{ textDecoration: "none" }}>
+        <Link
+          to={"job/" + matchedJob?.jobId}
+          style={{ textDecoration: "none" }}
+          key={matchedJob?.jobId}
+        >
           <JobsCard job={matchedJob} />
         </Link>
       ))}

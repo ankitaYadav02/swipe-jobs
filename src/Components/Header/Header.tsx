@@ -33,9 +33,11 @@ const Header = () => {
           </Box>
           <Link to={routesName.profile} style={{ textDecoration: "none" }}>
             <Box sx={{ flexGrow: 0, textDecoration: "none" }}>
-                <Typography mr={1} sx={{ color: "#fff", fontWeight: 400 }}>
-                  {a?.data?.firstName ? a?.data?.firstName + " " + a?.data?.lastName : 'not found'}
-                </Typography>
+              <Typography mr={1} sx={{ color: "#fff", fontWeight: 400 }}>
+                {a?.data?.firstName
+                  ? a?.data?.firstName + " " + a?.data?.lastName
+                  : "not found"}
+              </Typography>
             </Box>
           </Link>
         </Toolbar>

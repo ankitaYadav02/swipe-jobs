@@ -1,13 +1,13 @@
-import { createTheme } from '@mui/material/styles';
-import { appHeaderHeight } from 'Constant/constant';
+import { createTheme } from "@mui/material/styles";
+import { appHeaderHeight } from "Constant/constant";
 
 let theme = createTheme({
   palette: {
     primary: {
-      main: '#000000',
+      main: "#000000",
     },
     secondary: {
-      main: '#edf2ff',
+      main: "#edf2ff",
     },
   },
 });
@@ -22,10 +22,10 @@ theme = createTheme(theme, {
     MuiAppBar: {
       styleOverrides: {
         root: {
-          height: appHeaderHeight
+          height: appHeaderHeight,
         },
       },
-    }
+    },
   },
 });
 

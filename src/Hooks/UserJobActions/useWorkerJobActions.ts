@@ -3,7 +3,6 @@ import { useMutation, useQuery } from "react-query";
 import { acceptJobOffer, rejectJobOffer } from "Services/Api";
 import { queryKey } from "Services/serviceEndpoints";
 
-
 const useWorkerJobActions = (workerId: string) => {
   const rejectJobMutation = useMutation(
     [queryKey.accept, workerId],
@@ -17,7 +16,7 @@ const useWorkerJobActions = (workerId: string) => {
 
   return {
     rejectJobMutation,
-    acceptJobMutation
+    acceptJobMutation,
   };
 };
 
