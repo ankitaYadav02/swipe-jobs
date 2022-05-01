@@ -2,7 +2,6 @@ import { Alert, Box, Snackbar } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import useWorkerJobActions from "Hooks/UserJobActions";
 import { workerID } from "Constant/constant";
-import { SyntheticEvent, useState } from "react";
 
 interface JobActionsProps {
   id: string | undefined;

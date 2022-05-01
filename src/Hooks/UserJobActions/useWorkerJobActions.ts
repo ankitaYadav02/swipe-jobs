@@ -20,10 +20,6 @@ const useWorkerJobActions = (workerId: string) => {
     _event?: SyntheticEvent | Event,
     reason?: string
   ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
     setSnackbarOpen({ open: false, message: "", type: undefined });
   };
 

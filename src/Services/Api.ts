@@ -1,9 +1,10 @@
 import axios from "axios";
 import { jobActionProps, JobActionsResponse } from "dto/jobAction";
+import { UserData } from "dto/workerProfile";
 
 export const getUserProfile = async (userId: string) => {
   try {
-    const user = await axios.get(`${userId}/profile`);
+    const user = await axios.get<UserData>(`${userId}/profile`);
     return user.data;
   } catch (err) {
     throw err;
