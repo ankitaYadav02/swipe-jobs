@@ -1,5 +1,4 @@
-import { jobActionProps } from "dto/jobAction";
-import { useMutation, useQuery } from "react-query";
+import { useMutation } from "react-query";
 import { acceptJobOffer, rejectJobOffer } from "Services/Api";
 import { queryKey } from "Services/serviceEndpoints";
 

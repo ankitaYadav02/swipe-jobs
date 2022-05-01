@@ -10,7 +10,7 @@ import { workerID } from "Constant/constant";
 import { JobMatchesDto } from "dto/jobMatches";
 import { useParams } from "react-router-dom";
 import useWorkerJobMatches from "Hooks/UserJobMatches";
-import useWorkerJobActions from "Hooks/UserJobActions/useWorkerJobActions";
+import useWorkerJobActions from "Hooks/UserJobActions";
 import getFormattedTime, { FormatTimeProps } from "Utils/formatTime";
 
 
